@@ -1,17 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
 namespace PathFinder.Map
 {
-    public class MapProcessor
+    public class MazeImageProcessor
     {
         private readonly Bitmap image;
         public Color backgroundColor;
         public Color wallColor;
         public int pointSize;
         
-        public MapProcessor(Bitmap image)
+        public MazeImageProcessor(Bitmap image)
         {
             if (image.Size.Height < 5 || image.Size.Width < 5)
                 throw new Exception("Image too small");
@@ -26,7 +27,7 @@ namespace PathFinder.Map
 
 
 
-            return new Maze();
+            return FindWalls();
         }
 
         public void FindColors()
@@ -57,28 +58,38 @@ namespace PathFinder.Map
             }
         }
 
-        public void FindWalls()
+        public Maze FindWalls()
         {
-            var col = 0;
-            var row = 0;
-
-            while (backgroundColor == Color.Empty && backgroundColor != wallColor)
+            var result = new Maze
             {
-                backgroundColor = image.GetPixel(row, col);
+                Heigh = image.Size.Height / pointSize,
+                Width = image.Size.Width / pointSize
+            };
 
-                // Move to the next cell
-                if (col >= image.Size.Width)
-                {
-                    col = 0;
-                    row += 1;
-                }
-                else if(row >= image.Size.Height)
-                {
+            for (var rowIndex = 0; rowIndex < result.Heigh; rowIndex++)
+            {
+                var row = new List<Point>();
 
+                for (var colIndex = 0; colIndex < result.Width; colIndex++)
+                {
+                    var isWall = image.GetPixel(colIndex, rowIndex) == wallColor;
+                    row.Add(
+                        new Point
+                        {
+                            IsWall = isWall,
+                            IsEntrance = !isWall 
+                                        && (rowIndex == 0 
+                                            || rowIndex == result.Heigh-1
+                                            || colIndex == 0 
+                                            || colIndex == result.Width -1)
+                        }
+                    );
                 }
-                else
-                    col++;
+
+                result.Rows.Add(row);
             }
+
+            return result;
         }
 
         public void FindPointSize()

@@ -53,7 +53,7 @@ namespace PathFinder.App
             using(var imageStream = File.OpenRead(args[0]))
             {
                 var image = new Bitmap(imageStream);
-                maze = new MapProcessor(image).Read();
+                maze = new MazeImageProcessor(image).Read();
             }
 
             Console.WriteLine("Starting...");

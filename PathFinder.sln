@@ -9,6 +9,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.App", "PathFinde
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinder.Tests", "PathFinder.Tests\PathFinder.Tests.csproj", "{34AC0AC7-DDD6-4158-96B0-F371A1C82584}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{A42F18D0-7C87-4543-AD75-9A5BBFFAEE46}"
+	ProjectSection(SolutionItems) = preProject
+		TestData\medium-1.png = TestData\medium-1.png
+		TestData\small-1.png = TestData\small-1.png
+		TestData\small-2.png = TestData\small-2.png
+		TestData\small-3.png = TestData\small-3.png
+		TestData\small-4.png = TestData\small-4.png
+		TestData\small-5.png = TestData\small-5.png
+		TestData\tiny-1.png = TestData\tiny-1.png
+		TestData\tiny-2.png = TestData\tiny-2.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
