@@ -7,9 +7,9 @@ namespace PathFinder.LeftTurn
 {
     public class LeftTurnPathFinder : IPathFinder
     {
-        public Task<List<Point>> Solve(Maze maze)
+        public async Task<List<Point>> Solve(Maze maze)
         {
-            throw new NotImplementedException();
+            return new List<Point>();
         }
     }
 }

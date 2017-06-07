@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace PathFinder.App
 {
@@ -57,9 +58,18 @@ namespace PathFinder.App
             }
 
             Console.WriteLine("Starting...");
-            var startTime = DateTime.Now;
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             var solution = await pathFinder.Solve(maze);
+
+            stopwatch.Stop();
+
+            Console.WriteLine($"Solution found after: {stopwatch.Elapsed}");
+
+            // Write the solution
+            var solutionWriter = new SolutionWriter(maze);
+            solutionWriter.WriteNextTo(args[0], solution);
 
         }
 

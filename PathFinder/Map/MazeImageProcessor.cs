@@ -25,8 +25,6 @@ namespace PathFinder.Map
             FindColors();
             FindPointSize();
 
-
-
             return FindWalls();
         }
 
@@ -76,6 +74,8 @@ namespace PathFinder.Map
                     row.Add(
                         new Point
                         {
+                            X = colIndex,
+                            Y = rowIndex,
                             IsWall = isWall,
                             IsEntrance = !isWall 
                                         && (rowIndex == 0 

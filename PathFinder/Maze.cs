@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace PathFinder.Map
+namespace PathFinder
 {
     public class Maze
     {
@@ -13,14 +13,14 @@ namespace PathFinder.Map
         {
             var result = new StringBuilder();
 
-            foreach(var row in Rows)
+            foreach (var row in Rows)
             {
-                foreach(var point in row)
+                foreach (var point in row)
                 {
                     result.Append(point.ToString());
                 }
 
-                if(Rows.IndexOf(row) < Rows.Count-1)
+                if (Rows.IndexOf(row) < Rows.Count - 1)
                     result.AppendLine();
             }
 
