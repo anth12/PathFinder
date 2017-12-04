@@ -9,6 +9,9 @@ namespace PathFinder
         public int Width { get; set; }
         public List<List<Point>> Rows { get; set; } = new List<List<Point>>();
 
+        public Point Entrance { get; set; }
+        public Point Exit { get; set; }
+
         public override string ToString()
         {
             var result = new StringBuilder();

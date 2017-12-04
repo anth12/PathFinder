@@ -9,6 +9,13 @@ namespace PathFinder.LeftTurn
     {
         public async Task<List<Point>> Solve(Maze maze)
         {
+            var solved = false;
+
+            while (!solved)
+            {
+                
+            }
+
             return new List<Point>();
         }
     }

@@ -27,5 +27,28 @@ namespace PathFinder.Tests.Map
                 Assert.Equal(Color.FromArgb(255, 255, 255), processor.backgroundColor);
             }
         }
+
+        [Fact]
+        public void Can_find_measure_maze_height_width()
+        {
+            var processor = new MazeImageProcessor(Mock.Small1);
+            var maze = processor.Read();
+            {
+                Assert.Equal(8, maze.Width);
+                Assert.Equal(8, maze.Heigh);
+            }
+        }
+
+        [Fact]
+        public void Can_find_entrances()
+        {
+            var processor = new MazeImageProcessor(Mock.Small1);
+            var maze = processor.Read();
+            {
+                Assert.True(maze.Rows[0][2].IsEntrance);
+                Assert.True(maze.Rows[7][1].IsEntrance);
+            }
+        }
+
     }
 }

@@ -69,7 +69,7 @@ namespace PathFinder.App
 
             // Write the solution
             var solutionWriter = new SolutionWriter(maze);
-            solutionWriter.WriteNextTo(args[0], solution);
+            solutionWriter.WriteNextTo(args[0], solution, openAfter: true);
 
         }
 

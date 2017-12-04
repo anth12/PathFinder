@@ -92,6 +92,11 @@ namespace PathFinder.Map
             return result;
         }
 
+        public Maze FindEntrances()
+        {
+            
+        }
+
         public void FindPointSize()
         {
             // Find shortest difference between colors

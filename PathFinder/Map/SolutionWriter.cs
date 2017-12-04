@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 
 namespace PathFinder.Map
@@ -17,12 +18,15 @@ namespace PathFinder.Map
             this.maze = maze;
         }
 
-        public void WriteNextTo(string originalFilePath, List<Point> path)
+        public void WriteNextTo(string originalFilePath, List<Point> path, bool openAfter = false)
         {
             var extensionIndex = originalFilePath.LastIndexOf('.');
             var filePath = originalFilePath.Insert(extensionIndex - 1, "_solved");
 
             Write(filePath, path);
+
+            if (openAfter)
+                Process.Start(filePath);
         }
 
         public void Write(string filePath, List<Point> path)
